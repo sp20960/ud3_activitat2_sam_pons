@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/student023/shop/assets/images/brand/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/student023/shop/css/style.css">
+    <link href="/student023/shop/assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/student023/shop/assets/fontawesome/css/all.css" rel="stylesheet">
+    <script src="/student023/shop/js/my_profile.js"></script>
+    <title>Perfil</title>
+</head>
+<body>
+    <header class="header sm:justify-evenly lg:justify-center lg:gap-[70px]">
+
+        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!"></i>
+
+        <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="logo" class="w-8 cursor-pointer">
+
+        <nav class="nav-mobile
+                    lg:bg-transparent lg:static lg:flex lg:flex-row lg:gap-10 lg:p-0 
+                    lg:top-auto lg:right-auto lg:h-auto lg:w-auto lg:z-0">
+
+            <div class="flex justify-end">
+                <i class="fa-solid fa-x fa-2xl cursor-pointer lg:hidden!"></i>
+            </div>
+
+            <a href="" class="link sm:text-5xl lg:text-xl">Inicio</a>
+
+            <p id="dropdown-menu-caret"
+               class="text-[2rem] cursor-pointer font-latobold sm:text-5xl lg:text-xl lg:relative">
+                Tienda <i class="fa-solid fa-caret-down"></i>
+            </p>
+
+            <div id="dropdown-content"
+                 class="hidden flex-col gap-[10px] pl-[25px] dropdown-content-desktop">
+                <a href="" class="link sm:text-5xl lg:text-xl">Guitarras electricas</a>
+                <a href="" class="link sm:text-5xl lg:text-xl">Guitarras acústicas</a>
+            </div>
+
+            <a href="" class="link sm:text-5xl lg:text-xl">Ofertas</a>
+            <a href="" class="link sm:text-5xl lg:text-xl">Novedades</a>
+        </nav>
+
+        <form action="#" class="relative">
+            <input type="search" name="search"
+                   class="rounded-md h-9 border-0 w-44 bg-white sm:w-80 lg:w-[800px]">
+            <i class="fa-solid fa-search fa-xl absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2"></i>
+        </form>
+
+       <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl icon"></i></a>
+        <a href="../backend/customer/my_shopping_cart.php"><i class="fa-solid fa-cart-shopping fa-2xl icon"></i></a>
+    </header>
+
+    <main class="flex flex-col pt-[115px] lg:flex-row lg:items-center lg:pt-[87px]">
+        <aside class="hidden lg:bg-primary/90 lg:flex lg:pt-10 lg:flex-col lg: lg:left-0 lg:w-100 lg:h-screen" >
+            <div class="flex flex-col gap-10 ml-5">
+                <div>
+                    <a href="" class="text-xl font-latobold text-text cursor-pointer">Profile</a>
+                </div>
+                <div>
+                    <a href="" class="text-xl font-latobold text-text cursor-pointer">Pedidos</a>
+                </div>
+                <div>
+                    <a href="" class="text-xl font-latobold text-text cursor-pointer">Reviews</a>
+                </div>
+                <div>
+                    <button id="log-out" class="text-xl border border-red-400 p-2 rotate-none rounded-md font-latobold text-text cursor-pointer"><i class="fa-solid fa-sign-out"></i>Logout</button>
+                </div>
+            </div>
+        </aside>
+
+        <section class="flex flex-col gap-5 p-5 lg:h-screen lg:w-screen lg:justify-center lg:px-10">
+            <section class="bg-primary fixed flex justify-between items-center w-80 left-1/2 shadow-2xl transform -translate-x-1/2 bottom-0 mb-2 z-50 pt-6 px-5 rounded-2xl border border-text sm:w-120 lg:hidden">
+                <div class="flex flex-col gap-3 items-center">
+                    <i class="fa-regular fa-circle-user fa-2xl text-text!"></i>
+                    <p class="font-latobold text-text">Perfil</p>
+                </div>
+                <div class="flex flex-col gap-3 items-center">
+                    <i class="fa-regular fa-clipboard fa-2xl text-text!"></i>
+                    <p class="font-latobold text-text">Pedidos</p>
+                </div>
+                <div class="flex flex-col gap-3 items-center">
+                    <i class="fa-regular fa-star fa-2xl text-text!"></i>
+                    <p class="font-latobold text-text">Reviews</p>
+                </div>
+                <div id="log-out-mobile" class="flex flex-col gap-3 items-center">
+                    <i class="fa-solid fa-sign-out fa-2xl text-text!"></i>
+                    <p class="font-latobold text-text">Logout</p>
+                </div>
+            </section>
+
+            <section class="flex flex-col w-full gap-5 justify-center lg:flex-row lg:w-full">
+                <section class="bg-primary/90 flex flex-col pt-5 py-10 gap-5 items-center shadow-2xl rounded-2xl active:scale-105 transition-all lg:hover:scale-101 lg:w-220">
+                    <h2 class="text-center text-text font-latobold text-2xl" id="full-name"></h2>
+                    <form action="../backend/endpoints/db_customer_update.php" method="POST" class="flex flex-col items-center gap-5" enctype="multipart/form-data">
+                        <label for="input-profile-image">
+                            <div class="rounded-full">
+                                <img id="profile-image" src="../assets/images/customers/default.png" width="300" alt="" class="cursor-pointer hover:opacity-40 transition-all rounded-full">
+                            </div>
+                        </label>
+                        <input type="file" id="input-profile-image" name="customerProfileImage" class="hidden">
+                        <button class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm hidden" id="btn-save-profile-image" name="updateProfileImage" type="submit">Save</button>
+                    </form>
+                </section>
+
+                <section class="bg-primary/90 shadow-2xl rounded-2xl flex flex-col active:scale-105 transition-all p-5 lg:hover:scale-101 lg:w-full">
+                    <h3 class="text-text text-2xl font-latobold pb-5">Account Details</h3>
+                    <form id="form-update-customer-info" action="../backend/endpoints/db_customer_update.php" method="POST" class="flex flex-col gap-5 items-center sm:flex-row sm:gap-10 sm:items-start">
+                        <div class="flex flex-col gap-5 w-80">
+                            <div class="flex flex-col">
+                                <label for="first-name" class="text-text font-latoregular">Name</label>
+                                <input type="text" id="first-name" name="firstName" class="border-b-1 outline-none border-text text-text font-latoregular" value="">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="nif" class="text-text font-latoregular">NIF</label>
+                                <input type="text" name="nif" id="nif" class="border-b-1 outline-none border-text text-text font-latoregular" value="">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="phone" class="text-text font-latoregular">Phone</label>
+                                <input type="text" id="phone" name="phone" class="border-b-1 outline-none border-text text-text font-latoregular" value="">
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-5 w-80">
+                            <div class="flex flex-col">
+                                <label for="last-name" class="text-text font-latoregular">Last Name</label>
+                                <input type="text" id="last-name" name="lastName" class="border-b-1 outline-none border-text text-text font-latoregular" value="">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="email" class="text-text font-latoregular">Email*</label>
+                                <input type="email" id="email" name="email" class="border-b-1 outline-none border-text text-text font-latoregular" value="" required>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="flex justify-center pt-5">
+                        <button class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" name="updateCustomer" type="submit" form="form-update-customer-info">Save</button>
+                    </div>
+                </section>
+            </section>
+            
+            <section class="flex flex-col gap-5 lg:flex-row lg:w-full">
+                <section class="bg-primary/90 min-h-80 max-h-100 rounded-2xl shadow-2xl active:scale-105 transition-all p-5 flex flex-col gap-5 overflow-y-scroll lg:w-250 lg:hover:scale-101">
+                    <h2 class="text-text text-2xl font-latobold" id="start-addresses">Edit Addresses</h2>
+                    
+                    <div class="border border-black rounded bg-text w-50 p-2 hover:opacity-60">
+                        <button id="button-no-address" class="cursor-pointer"><i class="fa-regular fa-plus"></i>Add an address</button>
+                    </div>
+
+                </section>
+                <section class="bg-primary/90 min-h-80 max-h-80 rounded-2xl shadow-2xl active:scale-105 transition-all p-5 lg:hover:scale-101 lg:w-150">
+                    <h2 class="text-text text-2xl font-latobold">Previous Orders</h2>
+                </section>
+            </section>
+
+            <section id="container-add-address" class="fixed hidden w-screen h-screen bg-primary/99 top-0 left-0 z-30000 flex-col p-5 gap-10 rounded lg:w-150 lg:h-150 lg:left-170 lg:top-40">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-text font-latobold text-xl">Add address</h3>
+                    <i id="close-add-address" class="fa-solid fa-x fa-xl text-text! cursor-pointer"></i>
+                </div>
+
+                <form action="../backend/endpoints/db_address_insert.php" method="POST" class="flex flex-col gap-5">
+                    <div class="flex flex-col w-full gap-5 lg:flex-row">
+                        <input type="text" id="name" name="name" placeholder="Name*" class="border-b-1 p-4 rounded outline-none bg-text font-latoregular lg:w-[50%]" required>
+                        <input type="test" id="lastName" name="lastName" placeholder="Last name*" class="border-b-1 p-4 rounded outline-none bg-text font-latoregular lg:w-[50%]" required>
+                    </div>
+                    <div class="flex flex-col">
+                        <input type="text" id="address" name="address" placeholder="Address and number *" class="border-b-1 p-4 rounded outline-none bg-text font-latoregular" required>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <input type="text" id="additional-data" name="additionalData" placeholder="Additional data" class="border-b-1 p-4 rounded outline-none bg-text font-latoregular">
+                    </div>
+
+                    <div class="flex flex-col gap-5 lg:flex-row">
+                        <select name="province" class="bg-text rounded p-4">
+                            <option value="Andalucia">Andalucia</option>
+                            <option value="Aragon">Aragon</option>
+                            <option value="Asturias">Asturias</option>
+                            <option value="Baleares">Baleares</option>
+                            <option value="Ceuta">Ceuta</option>
+                            <option value="Canarias">Canarias</option>
+                            <option value="Cantabria">Cantabria</option>
+                            <option value="Castilla-La Mancha">Castilla-La Mancha</option>
+                            <option value="Castilla y Leon">Castilla y Leon</option>
+                            <option value="Cataluna">Cataluna</option>
+                            <option value="Comunidad Valenciana">Comunidad Valenciana</option>
+                            <option value="Extremadura">Extremadura</option>
+                            <option value="Galicia">Galicia</option>
+                            <option value="La Rioja">La Rioja</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Melilla">Melilla</option>
+                            <option value="Murcia">Murcia</option>
+                            <option value="Navarra">Navarra</option>
+                            <option value="Pais Vasco">Pais Vasco</option>
+                        </select>
+                        <input type="text" id="city" name="city" placeholder="City*" class="border-b-1 p-4 rounded outline-none bg-text font-latoregular lg:w-47" required>
+                        <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="border-b-1 p-4 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" required>
+                    </div>
+                    <div class="flex justify-center">
+                        <button name="addAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Save</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+        
+
+    </main>
+
+    <footer class="bg-primary flex flex-col 
+                   sm:grid sm:grid-cols-3 sm:p-5
+                   lg:grid lg:grid-cols-3 lg:px-5 lg:pt-10">
+
+        <div class="sm:col-start-1 sm:flex sm:flex-col sm:gap-[10px]
+                     lg:col-start-1 lg:col-end-2 lg:flex lg:flex-col lg:gap-[10px] lg:pl-2.5">
+
+            <h2 class="titol-footer">Ayuda</h2>
+
+            <hr class="text-text sm:hidden lg:hidden">
+
+            <a href="" class="text-[1rem] pl-[20px] font-latoregular text-text 
+                              sm:pl-0 lg:pl-0">F.A.Q</a>
+
+            <hr class="text-text sm:hidden lg:hidden">
+
+            <a href="" class="text-[1rem] pl-[20px] font-latoregular text-text 
+                              sm:pl-0 lg:pl-0">Contacto</a>
+        </div>
+
+        <hr class="text-text sm:hidden lg:hidden">
+
+        <div class="sm:col-start-2 sm:flex sm:flex-col sm:gap-[10px]
+                     lg:col-start-2 lg:col-end-3 lg:flex lg:flex-col lg:gap-[10px]">
+
+            <h2 class="titol-footer">Empresa</h2>
+
+            <hr class="text-text sm:hidden lg:hidden">
+
+            <a href="" class="text-[1rem] pl-[20px] font-latoregular text-text 
+                              sm:pl-0 lg:pl-0">Quienes somos</a>
+        </div>
+
+        <hr class="text-text sm:hidden">
+
+        <div class="p-[15px_0_10px_20px] text-text 
+                     sm:row-start-2 sm:p-[10px_0_20px_10px]
+                     lg:row-start-2 lg:row-end-3 lg:pl-2.5 lg:py-5">
+
+            <i class="fa-brands fa-x-twitter fa-xl"></i>
+            <i class="fa-brands fa-instagram fa-xl"></i>
+            <i class="fa-brands fa-youtube fa-xl"></i>
+        </div>
+
+        <hr class="text-text sm:hidden">
+
+        <div class="mb-2 sm:col-start-3 sm:row-start-1
+                     lg:col-start-3 lg:col-end-4">
+
+            <h2 class="titol-footer">Métodos de pago</h2>
+
+            <div class="flex gap-2 h-7 pl-5 sm:p-0 sm:flex-wrap">
+                <img src="/student023/shop/assets/images/payment_methods/visa.png">
+                <img src="/student023/shop/assets/images/payment_methods/mastercard.png" class="lg:pl-0">
+                <img src="/student023/shop/assets/images/payment_methods/google.png">
+                <img src="/student023/shop/assets/images/payment_methods/paypal.png">
+                <img src="/student023/shop/assets/images/payment_methods/amex.png">
+                <img src="/student023/shop/assets/images/payment_methods/apple.png">
+            </div>
+        </div>
+
+        <hr class="text-text sm:hidden">
+
+        <div class="flex justify-center 
+                     sm:col-span-4 sm:py-5
+                     lg:row-start-3 lg:row-end-4 lg:col-span-4 lg:py-5">
+
+            <a href="" class="text-[1rem] font-latoregular text-text">Política de privacidad | </a>
+            <a href="" class="text-[1rem] font-latoregular text-text">Preferencia de cookies</a>
+        </div>
+
+        <hr class="text-text sm:hidden sm:col-span-4 sm:row-start-3 sm:row-end-4 
+                   lg:row-start-3 lg:row-end-4 lg:col-span-4">
+
+        <small class="text-center text-text pt-[10px] sm:col-span-4 
+                      lg:row-start-4 lg:row-end-5 lg:col-span-4">
+            <i class="fa-regular fa-copyright"></i> Riff Store
+        </small>
+    </footer>
+    <script src="../js/common.js"></script>
+</body>
+</html>

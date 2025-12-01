@@ -1,0 +1,17 @@
+@font-face {
+  font-family: LatoRegular;
+  src: url("../../assets/fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: LatoBold;
+  src: url("../../assets/fonts/Lato-Bold.ttf");
+}
+
+$latoregular: LatoRegular, "sans-serif";
+$latobold: LatoBold, "sans-serif";
+$primary: #2b2b2b;
+$secondary: #F0E9E9;
+$text: #f0f0f0;
+$accent: #c9a635;
+$btn: #8b5e3c;

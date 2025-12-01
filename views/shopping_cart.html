@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../assets/images/brand/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/sass/cart.css">
+  <link href="../assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="../assets/fontawesome/css/all.css" rel="stylesheet">
+  <title>Carrito de Compra</title>
+</head>
+
+<body>
+
+  <header>
+
+    <i class="fa-solid fa-bars fa-2xl"></i>
+
+    <img src="../assets/images/brand/logo_claro.png" alt="logo">
+
+    <nav>
+
+      <div>
+        <i class="fa-solid fa-x fa-2xl"></i>
+      </div>
+
+      <a href="">Inicio</a>
+
+      <p id="dropdown-menu-caret">
+        Tienda <i class="fa-solid fa-caret-down"></i>
+      </p>
+
+      <div id="dropdown-content">
+        <a href="">Guitarras electricas</a>
+        <a href="" ">Guitarras acústicas</a>
+            </div>
+
+            <a href="">Ofertas</a>
+            <a href="">Novedades</a>
+        </nav>
+
+        <form action=" #">
+          <input type="search" name="search" />
+          <i class="fa-solid fa-search fa-xl"></i>
+          </form>
+
+          <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+          <a href="../backend/customer/my_shopping_cart.php"><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
+  </header>
+
+  <main>
+    <h1>Su cesta de compras</h1>
+    <hr>
+    <div>
+      <!-- SECTION LIST PRODUCTS -->
+      <section id="shopping-cart-products">
+
+        <div class="shopping-cart-product" data-product-id="'.$productId.'">
+          <div>
+            <img src="../assets/images/products/gibson_les_paul_standard/image.png" alt="" width="100">
+          </div>
+          <div class="shopping-cart-product__info">
+            <div>
+              <h3>Gibson Les Paul Standard</h3>
+              <small>En stock</small>
+            </div>
+            <div>
+              <i class="fa-solid fa-trash fa-xl"></i>
+              <div>
+                <select id="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10" '.($quantity == 10 ? "selected": "").'>10</option>
+                </select>
+                <h2>1400</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+         <div class="shopping-cart-product" data-product-id="'.$productId.'">
+          <div>
+            <img src="../assets/images/products/gibson_les_paul_standard/image.png" alt="" width="100">
+          </div>
+          <div class="shopping-cart-product__info">
+            <div>
+              <h3>Gibson Les Paul Standard</h3>
+              <small>En stock</small>
+            </div>
+            <div>
+              <i class="fa-solid fa-trash fa-xl"></i>
+              <div>
+                <select id="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10" '.($quantity == 10 ? "selected": "").'>10</option>
+                </select>
+                <h2>1400</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+         <div class="shopping-cart-product" data-product-id="'.$productId.'">
+          <div>
+            <img src="../assets/images/products/gibson_les_paul_standard/image.png" alt="" width="100">
+          </div>
+          <div class="shopping-cart-product__info">
+            <div>
+              <h3>Gibson Les Paul Standard</h3>
+              <small>En stock</small>
+            </div>
+            <div>
+              <i class="fa-solid fa-trash fa-xl"></i>
+              <div>
+                <select id="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10" '.($quantity == 10 ? "selected": "").'>10</option>
+                </select>
+                <h2>1400</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION SUBTOTAL -->
+      <section>
+        <div>
+          <h2>Total: <span>2345€</span></h2>
+          <small>Todos los precios incluyen <span>IVA</span></small>
+          <a href="">IR A CAJA <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </section>
+    </div>
+
+    <h1>Productos Destacados</h1>
+    <hr>
+    <section id="list-featured-products">
+
+    </section>
+  </main>
+
+  <footer>
+
+    <div>
+
+      <h2>Ayuda</h2>
+
+      <hr>
+
+      <a href="">F.A.Q</a>
+
+      <hr>
+
+      <a href="">Contacto</a>
+    </div>
+
+    <hr>
+
+    <div>
+
+      <h2>Empresa</h2>
+
+      <hr>
+
+      <a href=""">Quienes somos</a>
+        </div>
+
+        <hr>
+
+        <div>
+
+            <i class=" fa-brands fa-x-twitter fa-xl"></i>
+        <i class="fa-brands fa-instagram fa-xl"></i>
+        <i class="fa-brands fa-youtube fa-xl"></i>
+    </div>
+
+    <hr>
+
+    <div>
+
+      <h2>Métodos de pago</h2>
+
+      <div>
+        <img src="../assets/images/payment_methods/visa.png">
+        <img src="../assets/images/payment_methods/mastercard.png">
+        <img src="../assets/images/payment_methods/google.png">
+        <img src="../assets/images/payment_methods/paypal.png">
+        <img src="../assets/images/payment_methods/amex.png">
+        <img src="../assets/images/payment_methods/apple.png">
+      </div>
+    </div>
+
+    <hr>
+
+    <div>
+
+      <a href="">Política de privacidad | </a>
+      <a href="">Preferencia de cookies</a>
+    </div>
+
+    <hr>
+
+    <small>
+      <i class="fa-regular fa-copyright"></i> Riff Store
+    </small>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/shopping_cart.js"></script>
+</body>
+
+</html>

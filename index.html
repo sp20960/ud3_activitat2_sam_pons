@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/all.css" rel="stylesheet">  
+    <link rel="shortcut icon" href="assets/images/brand/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <title>Riff Store</title>
+</head>
+<body>
+    <header>
+        <i class="fa-solid fa-bars fa-2xl"></i>
+        <img src="assets/images/brand/logo_claro.png" alt="logo">
+         <nav>
+            <i class="fa-solid fa-x fa-2xl"></i>
+            <a href="">Inicio</a>
+            <p  id="dropdown-menu-caret">Tienda
+                <i class="fa-solid fa-caret-down"></i>
+            </p>
+            <div id="dropdown-content" class="dropdown-content">
+                <a href="">Guitarras electricas</a>
+                <a href="">Guitarras acústicas</a>
+            </div>
+            <a href="">Ofertas</a>
+            <a href="">Novedades</a>
+        </nav>
+        <form action="#">
+            <input type="search" name="search" id="">
+            <i class="fa-solid fa-search fa-xl"></i>
+        </form>
+        <a href="backend/login.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+        <a href="views/shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
+    </header>
+    <main>
+        <h1>Bienvenido a Riff Store!</h1>
+        <section class="carousel">
+            <img src="assets/images/carousel/1.png" alt="Imagen 1">
+            <img src="assets/images/carousel/2.png" alt="Imagen 2">
+            <img src="assets/images/carousel/3.png" class="active" alt="Imagen 3">  
+            <button class="btn prev">&#10094;</button>
+            <button class="btn next">&#10095;</button>
+        </section>
+        <h2>¡Ofertas de la semana!</h2>
+        <section id="list-products">
+           
+        </section>
+        <div class="container-more">
+                <p>Más</p>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-help">
+            <h2>Ayuda</h2>
+            <hr>
+            <a href="">F.A.Q</a>
+            <hr>
+            <a href="">Contacto</a>
+        </div>
+        <hr>
+        <div class="footer-business">
+            <h2>Empresa</h2>
+            <hr>
+            <a href="">Quienes somos</a>
+        </div>
+        <hr>
+        <div class="container-social-media">
+            <i class="fa-brands fa-x-twitter fa-xl"></i>
+            <i class="fa-brands fa-instagram fa-xl"></i>
+            <i class="fa-brands fa-youtube fa-xl"></i>
+        </div>
+        <hr>
+        <div class="container-payment-methods">
+            <h2>Métodos de pago</h2>
+            <img src="assets/images/payment_methods/visa.png" alt="">
+            <img src="assets/images/payment_methods/mastercard.png" alt="">
+            <img src="assets/images/payment_methods/google.png" alt="">
+            <img src="assets/images/payment_methods/apple.png" alt="">
+            <img src="assets/images/payment_methods/paypal.png" alt="">
+            <img src="assets/images/payment_methods/amex.png" alt="">
+        </div>
+        <hr>
+        <div class="container-policies">
+            <a href="">Política de privacidad | </a>
+            <a href="">Preferencia de cookies</a>
+        </div>
+        <hr>
+        <small><i class="fa-regular fa-copyright"></i> Riff Store</small>
+    </footer>
+    <script src="js/index.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

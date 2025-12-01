@@ -1,0 +1,174 @@
+@use "variables" as *;
+@use "mixin" as *;
+@use "common" as *;
+
+main {
+  padding-top: 120px;
+
+  h1 {
+    font-family: $latobold;
+    padding-left: 10px;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+  
+    @media (min-width: 1100px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 50px;
+      
+    }
+
+    #shopping-cart-products {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 30px;
+
+      .shopping-cart-product {
+        @include product-card($secondary, 1.25rem, 100px);
+
+        @media (min-width: 810px) and (max-width: 1090px){
+          @include product-card($secondary, 1.7rem, 150px);
+        }   
+
+        @media (min-width: 1100px){
+          @include product-card($secondary, 2rem, 170px);
+        }
+      }
+
+      @media (min-width: 1100px) {
+        width: 60%;
+      }
+    }
+
+    section:nth-of-type(2) {
+      display: flex;
+      justify-content: center;
+      padding: 30px 0;
+
+      > div {
+        box-shadow: #0000003d 0px 3px 8px;
+        padding: 10px 50px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        background-color: $secondary;
+
+        @media (min-width: 810px) and (max-width: 1090px) {
+          padding: 20px 100px;
+        }
+
+        @media (min-width: 1100px) {
+          padding: 30px 150px;
+        }
+
+        h2 {
+          font-family: $latobold;
+          @media (min-width: 810px) and (max-width: 1090px) {
+            font-size: 1.7rem;
+          }
+
+          @media (min-width: 1100px){
+            font-size: 2rem;
+          }
+        }
+
+        small {
+          font-family: $latoregular;
+
+          @media (min-width: 810px) and (max-width: 1090px) {
+            font-size: 1rem;
+          }
+
+          @media (min-width: 1100px){
+            font-size: 1rem;
+          }
+          span {
+            font-family: $latobold;
+          }
+        }
+
+        a {
+          @include button($accent, #000000);
+        }
+      }
+    }
+  }
+
+  #list-featured-products {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+
+    @media (min-width: 810px) and (max-width: 1090px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 1100px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+      width: 100%;
+      min-height: 300px;
+      border-radius: 16px;
+      cursor: pointer;
+      background-color: $secondary;
+
+      img{
+        width: 130px;
+      }
+
+      div:nth-of-type(1){
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 100%;
+
+        p{
+          font-size: 1rem;
+          font-family: $latobold;
+        }
+      }
+
+      div:nth-of-type(2){
+        text-align: start;
+        width: 100%;
+        h3, p {
+          font-family: $latobold;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+        }
+
+        p{
+          font-size: 1.5rem;
+        }
+      }
+
+      div:nth-of-type(3){
+        display: flex;
+        justify-content: center;
+        background-color: $accent;
+        padding: 5px;
+        border-radius: 16px;
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+}

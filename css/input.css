@@ -1,0 +1,62 @@
+@font-face {
+  font-family: LatoRegular;
+  src: url("../assets/fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: LatoBold;
+  src: url("../assets/fonts/Lato-Bold.ttf");
+}
+
+@import "tailwindcss";
+@theme {
+    --font-latoregular: LatoRegular, "sans-serif";
+    --font-latobold: LatoBold, "sans-serif";
+    --color-primary: #2b2b2b;
+    --color-secondary: #F0E9E9;
+    --color-text: #f0f0f0;
+    --color-accent: #c9a635;
+    --color-btn: #8b5e3c;
+}
+
+@layer components {
+  .header{
+    @apply p-5 bg-primary flex w-full items-center justify-between fixed z-[1000]
+  }
+
+  .nav-mobile{
+    @apply bg-primary fixed hidden flex-col gap-[10px] px-5 py-10 top-0 right-0 h-screen w-screen z-[1000] text-text
+  }
+
+  .icon {
+    @apply text-text cursor-pointer
+  }
+  
+  .dropdown-content-desktop{
+    @apply lg:px-5 lg:py-2.5 lg:flex-col lg:gap-[10px] lg:absolute lg:bottom-0 lg:translate-x-[90%] lg:translate-y-[60%] lg:border lg:rounded-lg lg:border-accent lg:bg-primary/80
+  }
+
+  .grid-element {
+    @apply flex justify-between p-5 border-b border-primary
+  }
+
+  .review{
+    @apply flex flex-col bg-secondary/50 rounded p-3
+  }
+
+  .link{
+    @apply text-text text-[2rem] font-latobold cursor-pointer
+  }
+
+  .active-image{
+    @apply border-t-2 border-accent
+  }
+
+  .titol-footer {
+    @apply text-text p-[5px_0_5px_10px] font-latobold sm:text-[1.4rem] sm:p-0 lg:text-2xl lg:p-0
+  }
+
+  .card {
+    @apply flex flex-col items-center gap-[10px] p-[20px] w-full min-h-[300px] rounded-2xl cursor-pointer bg-secondary/60
+  }
+}
