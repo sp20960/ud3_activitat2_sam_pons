@@ -43,6 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     logo.addEventListener('click', () => {
-        location.href = "ud3_activitat2_sam_pons/index.html"
+        location.href = "/ud3_activitat2_sam_pons/index.html"
     })
 });
