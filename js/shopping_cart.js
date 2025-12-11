@@ -2,36 +2,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlProductsEndpoint = "https://remotehost.es/student023/shop/backend/endpoints/db_products_enabled.php";
     const urlLoadShoppingCart = "https://remotehost.es/student023/shop/backend/endpoints/db_product_by_id.php";
     const listFeaturedProducts = document.getElementById('list-featured-products');
-    let productsToAdd = JSON.parse(localStorage.getItem('products')) || {};
+    let productsToAdd = JSON.parse(localStorage.getItem('products')) || {}
     let listShoppingCart = document.getElementById('shopping-cart-products')
 
+
     function checkLocalStorage(){
-      if(productsToAdd.products){
+      if(productsToAdd){
         listShoppingCart.innerHTML = ""
         for(const product of productsToAdd.products){
-            loadShoppingCart(product);
+            showLocalStorageProducts(product);
         } 
       }
     }
 
-    // function loadShoppingCart(product){  
+    function showLocalStorageProducts(product){  
       
-    //     let params = "productId=" + encodeURIComponent(product.productId) +
-    //                   "&quantity=" + encodeURIComponent(product.qty);
+        let params = "productId=" + encodeURIComponent(product.productId) +
+                      "&quantity=" + encodeURIComponent(product.qty);
 
-    //     let xhttp = new XMLHttpRequest();
-    //     xhttp.open("POST", urlLoadShoppingCart, true);
-    //     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    //     xhttp.onreadystatechange = function(){
-    //       if(xhttp.readyState == 4 && xhttp.status == 200){
-    //           listShoppingCart.innerHTML += xhttp.responseText;
-    //                   addEventTrash();
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", urlLoadShoppingCart, true);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange = function(){
+          if(xhttp.readyState == 4 && xhttp.status == 200){
+              listShoppingCart.innerHTML += xhttp.responseText;
+              addEventTrash();
+              updateSubtotal();
+          }
+        }
+        xhttp.send(params)
 
-    //       }
-    //     }
-    //     xhttp.send(params)
+    }
 
-    // }
+    function updateSubtotal(){
+      const products = document.querySelectorAll('.shopping-cart-product');
+      const subtotalPrice = document.getElementById('subtotal');
+      let subtotal = 0;
+      products.forEach((product) => {
+        subtotal += +product.dataset.productPrice;
+      })
+      subtotalPrice.innerText = subtotal;
+    }
 
     function addEventTrash(){
       document.querySelectorAll('.fa-trash').forEach((trash) => {
@@ -59,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .map((product) => 
         `
            <article class="card sm:h-[320px]" data-product-id="${product.productId}">
-                <img class="w-[130px]" src="https://remotehost.es${product.imagePath}"alt="">
+                <img class="w-[130px]" src="${product.imagePath}" alt="">
                 <div class="flex items-center justify-start w-full">
                     <i class="fa-regular fa-star fa-sm"></i>
                     <i class="fa-regular fa-star fa-sm"></i>
@@ -115,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function addToShoppingCart(productId) {
-    const endpointnUrl = `https://remotehost.es/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
+    const endpointnUrl = `https://remothost.es/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
     try {
       const response = fetch(endpointnUrl)
       const result = response
@@ -138,6 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadRelatedProducts();
-  // checkLocalStorage();
+  checkLocalStorage();
   
 })
